@@ -29,4 +29,8 @@ for movie in distinct_movies:
 
     movie_data = Ratings[Ratings['MovieID']==movie]
 
-    movie_data = movida_data[]
+    movie_data = movie_data[['UserID', 'MovieID', 'rating_adjusted']].drop_duplicates()
+    movie_data = movie_data.rename(columns={'rating_adjusted':'rating_adjusted1'})
+    movie_data = movie_data.rename(columns={'MovieID':'MovieID1'})
+    movie1_val = np.sqrt(np.sum(np.square(movie_data['rating_adjusted1']), axis=0))
+    user_data1 = Ratings[Ratings['UserID']==320]
