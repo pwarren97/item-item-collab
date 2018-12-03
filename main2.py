@@ -43,7 +43,7 @@ def get_means(data_full):
             current_movie_id = row[0]
             sum = float(row[2])
             counter = 1
-    # return list of type [[movieID, mean]]
+    # return list of type [[movieID, mean], [movieID, mean]]
     return id_mean_list
 
 # used to add the years for movies onto a list,
@@ -58,8 +58,18 @@ def append_years(user_list, movie_names):
 movie_means = get_means(data_full)
 append_years(movie_means, movie_names)
 
-def get_top_k(user_list):
+for row in movie_means:
+    print row
+
+# return array containing [movie_id, rating]
+def get_user_ratings(user_id):
+    temp = []
+    for item in data_full:
+        if item[1] == user_id:
+            temp.append([item[0], item[2]]) # append the list [movie_id, rating]
+    return temp
+
+# 
+def get_top_k(user_list, user_id, movie_id):
     top_k = []
     for item in user_list:
-        
-
